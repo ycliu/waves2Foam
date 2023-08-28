@@ -135,6 +135,7 @@ public:
             const fvPatchFieldMapper&
         );
 
+        #if OFVERSION<900
         //- Construct and return a clone
         virtual tmp<fvPatchField<scalar> > clone() const
         {
@@ -143,6 +144,7 @@ public:
                 new waveAlphaFvPatchScalarField(*this)
             );
         }
+        #endif
 
         //- Construct as copy setting internal field reference
         waveAlphaFvPatchScalarField

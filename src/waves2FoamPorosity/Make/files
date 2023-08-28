@@ -1,9 +1,9 @@
-/* ORIGINAL POROSITY IMPLEMENTATION */
-/* poroZones=porosityZones */
-/* $(poroZones)/porosityZones.C */
-/* $(poroZones)/porosityZone.C */
+# ORIGINAL POROSITY IMPLEMENTATION
+# poroZones=porosityZones
+# $(poroZones)/porosityZones.C
+# $(poroZones)/porosityZone.C
 
-/* POROSITY MODELS */
+# POROSITY MODELS
 pModels=porosityModel
 $(pModels)/wavesPorosityModel.C
 
@@ -12,7 +12,7 @@ $(pModels)/$(JJC)/jensenJacobsenChristensen2014.C
 $(pModels)/$(JJC)/jjc2014Zones.C
 $(pModels)/$(JJC)/jjc2014Zone.C
 
-/* POROSITY COEFFICIENTS */
+# POROSITY COEFFICIENTS
 poroCoeffs=porosityCoefficients
 $(poroCoeffs)/porosityCoefficient.C
 $(poroCoeffs)/nativeOF/nativeOF.C

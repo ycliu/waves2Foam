@@ -137,6 +137,7 @@ public:
             const fvPatchFieldMapper&
         );
 
+        #if OFVERSION<900
         //- Construct and return a clone
         virtual tmp<fvPatchField<vector> > clone() const
         {
@@ -145,6 +146,7 @@ public:
                 new waveVelocityFvPatchVectorField(*this)
             );
         }
+        #endif
 
         //- Construct as copy setting internal field reference
         waveVelocityFvPatchVectorField

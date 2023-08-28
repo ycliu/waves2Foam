@@ -1,4 +1,4 @@
-/* SHAPE FUNCTIONS */
+# SHAPE FUNCTIONS
 shapeFuncs=shapeFunctions
 
 $(shapeFuncs)/celerityShapeFunctions.C
@@ -7,13 +7,13 @@ $(shapeFuncs)/constantTheoryCelerity/constantTheoryCelerity.C
 $(shapeFuncs)/P03Celerity/P03Celerity.C
 $(shapeFuncs)/rationalCelerity/rationalCelerity.C
 
-/* HELPER FUNCTIONS */
+# HELPER FUNCTIONS
 gabcHelperFunctions/gabcHelperFunctions.C
 
-/* BOUNDARY CONDITIONS */
+# BOUNDARY CONDITIONS
 fvPatchFields/basic/robinV/robinVFvPatchFields.C
 fvPatchFields/derived/gabcPressureRobinV/gabcPressureRobinVFvPatchScalarField.C
 fvPatchFields/derived/gabcVelocity/gabcVelocityFvPatchVectorField.C
 
-/* OUTPUT */
+# OUTPUT
 LIB = $(WAVES_LIBBIN)/libwaves2FoamGABC

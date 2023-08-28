@@ -333,10 +333,17 @@ void waveVelocityFvPatchVectorField::evaluate()
 void waveVelocityFvPatchVectorField::write(Ostream& os) const
 {
     fvPatchField<vector>::write(os);
-    this->refValue().writeEntry("refValue", os);
-    this->refGrad().writeEntry("refGradient", os);
-    this->valueFraction().writeEntry("valueFraction", os);
-    this->writeEntry("value", os);
+    #if OFVERSION<900
+        this->refValue().writeEntry("refValue", os);
+        this->refGrad().writeEntry("refGradient", os);
+        this->valueFraction().writeEntry("valueFraction", os);
+        this->writeEntry("value", os);
+    #else
+        writeEntry(os, "refValue", this->refValue());
+        writeEntry(os, "refGradient", this->refGrad());
+        writeEntry(os, "valueFraction", this->valueFraction());
+        writeEntry(os, "value", *this);
+    #endif
 }
 
 

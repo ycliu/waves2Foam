@@ -524,7 +524,11 @@ void oceanWave3D::updatePhi()
     	phi.boundaryFieldRef()[patchi] == phiTemp.boundaryField()[patchi];
     #endif
 #else
+    #if OFVERSION<900
   	phi.boundaryField()[patchi] == phiTemp.boundaryField()[patchi];
+    #else
+    	phi.boundaryFieldRef()[patchi] == phiTemp.boundaryField()[patchi];
+    #endif
 #endif
     }
 
