@@ -91,6 +91,8 @@ echo "====================================="
 echo "    COMPILE OCEANWAVE3D"
 echo "====================================="
 
+compileFlag=0
+
 # Path for the git-repository
 ocw="OceanWave3D-Fortran90"
 
@@ -98,44 +100,6 @@ ocw="OceanWave3D-Fortran90"
 if [ ! -d "bin" ]
 then
     mkdir bin
-fi
-
-# Check-out the git-repository
-if [ ! -d "$ocw" ]
-then
-    echo ""
-    echo "Cloning the OceanWave3D git repository ..."
-    git clone https://github.com/boTerpPaulsen/OceanWave3D-Fortran90.git  
-
-    # Copy the compilation settings for OCW3D
-    cp $settings/oceanWave3DSettings/common.mk $ocw/.
-    cp $settings/oceanWave3DSettings/makefile $ocw/.
-else
-    echo ""
-    echo "Pull changes from the OceanWave3D git repository ..."
-    cd $ocw
-    
-    # Stash the local changes on the settings
-    git stash
-
-    # Get an update of the git and report the result
-    output=`git pull`
-    echo $output
-    # Check whether the git was already up to date
-    if [[ $output == "Already up-to-date." ]]
-    then
-        compileFlag=0
-    elif [[ $output == "Already up to date." ]] 
-    then
-        compileFlag=0
-    else
-        compileFlag=1
-    fi
-
-    # Re-apply the compilation settings
-    git stash pop
-
-    cd $OLDPWD
 fi
 
 # Check for the correct environmental variables
@@ -162,6 +126,13 @@ fi
 
 if [ "$compileFlag" == "1" ]
 then
+    # Unpack source
+    tar zxvf OceanWave3D-Fortran90.tar.gz
+
+    # Copy the compilation settings for OCW3D
+    cp $settings/oceanWave3DSettings/common.mk $ocw/.
+    cp $settings/oceanWave3DSettings/makefile $ocw/.
+
     # Temporary build directory
     mkdir build
 

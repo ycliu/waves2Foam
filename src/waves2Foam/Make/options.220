@@ -15,6 +15,8 @@ LIB_LIBS = \
     -lmeshTools \
     -lsampling \
     -lfileFormats \
+    -L$(WAVES_LIBBIN) \
+    -lOceanWave3D \
     -L$(WAVES_GSL_LIB) \
     -lgsl \
     -lgslcblas
